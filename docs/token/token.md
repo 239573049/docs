@@ -1,0 +1,93 @@
+---
+sidebar_position: 1
+---
+
+# Token 模块列表
+
+WebApi 的 Module
+
+[![NuGet](https://img.shields.io/nuget/dt/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)
+[![NuGet](https://img.shields.io/nuget/v/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)
+
+## 列表模块
+
+| 模块名称                                   | Nuget 下载量                                                                                                                                     | Nuget 版本号                                                                                                                                    |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [事件总线](./src/Token.EventBus/README.md) | [![NuGet](https://img.shields.io/nuget/dt/Token.EventBus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.EventBus/) | [![NuGet](https://img.shields.io/nuget/v/Token.EventBus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.EventBus/) |
+| [TokenModule](./token-module.md)           | [![NuGet](https://img.shields.io/nuget/dt/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)     | [![NuGet](https://img.shields.io/nuget/v/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)     |
+
+## 介绍
+
+模块注入模块引用
+设计灵感来源于 ABPModule，简化了很多没有必要的依赖，可自动扩展工具
+/test/的 Demo 项目是一个完整的项目示例，有兴趣的可以查看阅读
+
+## 使用教程
+
+```csharp
+
+using Token.Module.Extensions;
+using NetCoreTest;
+
+var builder = WebApplication.CreateBuilder(args);
+// 执行这一步的时候就会先执行NetCoreTestModule里面的 ConfigureService方法，
+// 执行顺序ConfigureServicesAsync =》ConfigureService方法
+// 如果NetCoreTestModule中使用了[DependOn(typeof(其他的Module))] 这样就可以按照传入顺序一并执行
+// 默认自动依赖注入继承指定依赖生命周期的接口
+await builder.Services.AddModuleApplicationAsync<NetCoreTestModule>();
+
+// 这样将不会自动依赖注入
+await builder.Services.AddModuleApplicationAsync<NetCoreTestModule>(false);
+
+var app = builder.Build();
+
+// 执行这一步的时候就会先执行NetCoreTestModule里面的 OnApplicationShutdown，
+// OnApplicationShutdownAsync =》OnApplicationShutdown方法
+app.InitializeApplication();
+
+app.Run();
+```
+
+## 自动依赖注入
+
+// 如果没有取消自动注入的话，您只需要在实现类继承相应的接口即可
+// 接口的名字和实现类型的名字必须基本一致，接口多加 I 其他的名字必须一致
+
+IScopedDependency => services.AddScoped();
+
+ISingletonDependency => service.AddSingleton();
+
+ITransientDependency => service.AddTransient();
+
+### 示例
+
+```csharp
+// 接口
+public interface IDemoService
+{
+    Task<string> GetAsync();
+
+    Task UpdateAsync(Guid id,string data);
+}
+
+// 实现类
+public class DemoService : IDemoService, ISingletonDependency
+{
+    public Task<string> GetAsync()
+    {
+
+        return Task.FromResult("ok");
+    }
+
+    public async Task UpdateAsync(Guid id, string data)
+    {
+        await Task.CompletedTask;
+    }
+}
+// 只需要按照这个示例就可以完成注入了，必须是未忽略自动注入才会注入
+// 建议按照abp官方的DDD实践去项目划分
+```
+
+## 测试
+
+在 test 文件中存在简单的使用示例
