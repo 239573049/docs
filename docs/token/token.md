@@ -11,10 +11,10 @@ WebApi 的 Module
 
 ## 列表模块
 
-| 模块名称                         | Nuget 下载量                                                                                                                                     | Nuget 版本号                                                                                                                                    |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [事件总线](./token-event.md)     | [![NuGet](https://img.shields.io/nuget/dt/Token.EventBus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.EventBus/) | [![NuGet](https://img.shields.io/nuget/v/Token.EventBus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.EventBus/) |
-| [TokenModule](./token-module.md) | [![NuGet](https://img.shields.io/nuget/dt/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)     | [![NuGet](https://img.shields.io/nuget/v/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)     |
+| 模块名称                       | Nuget 下载量                                                                                                                                     | Nuget 版本号                                                                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [事件总线](token-event.md)     | [![NuGet](https://img.shields.io/nuget/dt/Token.EventBus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.EventBus/) | [![NuGet](https://img.shields.io/nuget/v/Token.EventBus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.EventBus/) |
+| [TokenModule](token-module.md) | [![NuGet](https://img.shields.io/nuget/dt/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)     | [![NuGet](https://img.shields.io/nuget/v/Token.Module.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/Token.Module/)     |
 
 ## 介绍
 
