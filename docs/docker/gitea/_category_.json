@@ -1,0 +1,8 @@
+{
+  "label": "docker-Gitea",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Gitea docker部署"
+  }
+}
