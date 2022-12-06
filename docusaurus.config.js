@@ -6,25 +6,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Token',
+  tagline: '来自token的笔记',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  organizationName: 'facebook',
+  projectName: 'docusaurus',
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   presets: [
@@ -57,9 +50,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: '首页',
         logo: {
-          alt: 'My Site Logo',
+          alt: '首页',
           src: 'img/logo.svg',
         },
         items: [
@@ -67,10 +60,10 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: '笔记',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/239573049',
             label: 'GitHub',
             position: 'right',
           },
@@ -83,39 +76,35 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: '笔记',
                 to: '/docs/intro',
               },
             ],
           },
           {
-            title: 'Community',
+            title: '友链',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+                label: 'wosperry',
+                href: 'https://wosperry.com/',
+              }
             ],
           },
           {
-            title: 'More',
+            title: '更多',
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/239573049',
+              },
+              {
+                label: 'Gitee',
+                href: 'https://gitee.com/hejiale010426',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()}备案号:<a href='http://beian.miit.gov.cn/'> 湘ICP备2022007143号-1</a>`,
       },
       prism: {
         theme: lightCodeTheme,

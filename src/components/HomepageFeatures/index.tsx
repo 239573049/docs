@@ -1,51 +1,52 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Lottie from 'lottie-react';
+import logo from '../../../static/json/logo.json'
+import erji from '../../../static/json/数码动态包框.json'
+import bg from '../../../static/json/bg.json'
 
 type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  title: JSX.Element | string;
+  Svg: JSX.Element;
   description: JSX.Element;
 };
 
+
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '超多技术分享来自于token！',
+    Svg: <Lottie style={{ height: '150px' }} animationData={logo} loop={true} />,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        文档正在完善中！
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
+    title: "可以与token一块分享技术",
+    Svg: <Lottie style={{ height: '150px' }} animationData={erji} loop={true} />,
+    description:
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+        .Net 技术交流群：737776595
+      </>,
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '欢迎帮助token一块补充文档',
+    Svg: <Lottie style={{ height: '150px' }} animationData={bg} loop={true} />,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        欢迎一块帮助token完善技术分享的问题，有技术分享可以连接token一块学习
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {Svg}
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
