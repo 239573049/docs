@@ -1,0 +1,8 @@
+{
+  "label": "docker-MinIO",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "MinIO docker部署"
+  }
+}
