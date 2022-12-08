@@ -5,25 +5,25 @@
 > 在整个 K3s 文档中，你会看到一些选项可以作为命令标志和环境变量传递进来。关于传入选项的帮助，请参考[如何使用标志和环境变量。](https://docs.rancher.cn/docs/k3s/installation/install-options/how-to-flags/_index)
 
 - 常用选项
-  - [数据库](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#数据库)
-  - [集群选项](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#集群选项)
-  - [客户端选项](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#客户端选项)
+  - [数据库](#数据库)
+  - [集群选项](#集群选项)
+  - [客户端选项](#客户端选项)
 - Agent 选项
   - [Agent 节点](#agent-节点)
   - [Agent 运行时](#agent-运行时)
   - [Agent 网络](#agent-网络)
 - 高级选项
   - [日志](#日志)
-  - [监听](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#监听)
-  - [数据](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#数据)
-  - [网络](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#网络)
-  - [自定义选项](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#自定义选项)
-  - [存储类](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#存储类)
-  - [Kubernetes 组件](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#kubernetes-组件)
-  - [为 Kubernetes 进程定制标志](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#kubernetes进程定制标志)
-  - [实验性选项](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#实验性选项)
-  - [废弃的选项](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#废弃的选项)
-- [K3s Server Cli 帮助](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#k3s-server-cli-帮助)
+  - [监听](#监听)
+  - [数据](#数据)
+  - [网络](#网络)
+  - [自定义选项](#自定义选项)
+  - [存储类](#存储类)
+  - [Kubernetes 组件](#kubernetes-组件)
+  - [为 Kubernetes 进程定制标志](#kubernetes进程定制标志)
+  - [实验性选项](#实验性选项)
+  - [废弃的选项](#废弃的选项)
+- [K3s Server Cli 帮助](#k3s-server-cli-帮助)
 
 ## 常用选项[#](#常用选项)
 
@@ -126,13 +126,13 @@ Agent 选项之所以存在，是因为 server 内嵌了 agent 进程
 | `--advertise-port` value    | 0                        | apiserver 用于通告集群成员的端口(默认: listen-port) |
 | `--tls-san` value           | N/A                      | 在 TLS 证书中添加其他主机名或 IP 作为主题备用名称   |
 
-### Data[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#data)
+### Data[#](#data)
 
 | Flag                         | 默认值                                                                | 描述           |
 | ---------------------------- | --------------------------------------------------------------------- | -------------- |
 | `--data-dir value, -d` value | `/var/lib/rancher/k3s` 或 `${HOME}/.rancher/k3s` 如果不是 root 用户） | 存放数据的目录 |
 
-### 网络[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#网络)
+### 网络[#](#网络)
 
 | Flag                              | 默认值          | 描述                                                        |
 | --------------------------------- | --------------- | ----------------------------------------------------------- |
@@ -143,7 +143,7 @@ Agent 选项之所以存在，是因为 server 内嵌了 agent 进程
 | `--cluster-domain` value          | "cluster.local" | 集群域名                                                    |
 | `--flannel-backend` value         | "vxlan"         | 'none', 'vxlan', 'ipsec', 'host-gw', 或 'wireguard'中的一个 |
 
-### 定制标志[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#定制标志)
+### 定制标志[#](#定制标志)
 
 | Flag                                        | 描述                                              |
 | ------------------------------------------- | ------------------------------------------------- |
@@ -153,13 +153,13 @@ Agent 选项之所以存在，是因为 server 内嵌了 agent 进程
 | `--kube-controller-manager-arg` value       | 自定义 kube-controller-manager 进程的参数。       |
 | `--kube-cloud-controller-manager-arg` value | 自定义 kube-cloud-controller-manager 进程的参数。 |
 
-### 存储类[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#存储类)
+### 存储类[#](#存储类)
 
 | Flag                                 | 描述                     |
 | ------------------------------------ | ------------------------ |
 | `--default-local-storage-path` value | 本地存储类的默认存储路径 |
 
-### Kubernetes 组件[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#kubernetes-组件)
+### Kubernetes 组件[#](#kubernetes-组件)
 
 | Flag                         | 描述                                                                                                         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -169,14 +169,14 @@ Agent 选项之所以存在，是因为 server 内嵌了 agent 进程
 | `--disable-kube-proxy`       | 禁止运行 kube-proxy                                                                                          |
 | `--disable-network-policy`   | 禁用 K3S 默认网络策略控制器                                                                                  |
 
-### Kubernetes 进程定制标志[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#kubernetes-进程定制标志)
+### Kubernetes 进程定制标志[#](#kubernetes-进程定制标志)
 
 | Flag                     | 描述                         |
 | ------------------------ | ---------------------------- |
 | `--kubelet-arg` value    | 自定义 kubelet 进程的参数    |
 | `--kube-proxy-arg` value | 自定义 kube-proxy 进程的参数 |
 
-### 实验性选项[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#实验性选项)
+### 实验性选项[#](#实验性选项)
 
 | Flag                       | 环境变量               | 描述                                            |                |
 | -------------------------- | ---------------------- | ----------------------------------------------- | -------------- |
@@ -188,7 +188,7 @@ Agent 选项之所以存在，是因为 server 内嵌了 agent 进程
 | `--cluster-reset`          | `K3S_CLUSTER_RESET`    | 忽略所有节点，成为一个新集群的集群 master       |                |
 | `--secrets-encryption`     | N/A                    | 启用 Secret 加密                                |                |
 
-### 废弃的选项[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#废弃的选项)
+### 废弃的选项[#](#废弃的选项)
 
 | Flag                     | 环境变量             | 描述                                                                                    |
 | ------------------------ | -------------------- | --------------------------------------------------------------------------------------- |
@@ -196,7 +196,7 @@ Agent 选项之所以存在，是因为 server 内嵌了 agent 进程
 | `--no-deploy` value      | N/A                  | 不需要部署的组件 (有效选项: coredns, servicelb, traefik, local-storage, metrics-server) |
 | `--cluster-secret` value | `K3S_CLUSTER_SECRET` | 使用 --token                                                                            |
 
-## K3s Server CLI 帮助[#](https://docs.rancher.cn/docs/k3s/installation/install-options/server-config/_index#k3s-server-cli-帮助)
+## K3s Server CLI 帮助[#](#k3s-server-cli-帮助)
 
 > 如果一个选项出现在下面的括号里，例如`[$K3S_TOKEN]`，则意味着该选项可以作为该名称的环境变量传递进来。
 

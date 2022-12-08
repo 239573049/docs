@@ -1,10 +1,12 @@
-## 配置[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#配置)
+# K3s Agent 配置参考
+
+## 配置[#](#配置)
 
 | Flag                     | 默认值                         | 描述             |
 | ------------------------ | ------------------------------ | ---------------- |
 | `--config FILE, -c` FILE | "/etc/rancher/k3s/config.yaml" | 通过文件加载配置 |
 
-## 日志[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#日志)
+## 日志[#](#日志)
 
 | Flag                    | 默认值 | 环境变量    | 描述                                                    |
 | ----------------------- | ------ | ----------- | ------------------------------------------------------- |
@@ -14,7 +16,7 @@
 | `--log value, -l` value | N/A    | N/A         | 记录到文件                                              |
 | `--alsologtostderr`     | N/A    | N/A         | 记录到标准错误输出和文件（如果设置）                    |
 
-## 集群选项[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#集群选项)
+## 集群选项[#](#集群选项)
 
 | Flag                       | 环境变量         | 描述                      |
 | -------------------------- | ---------------- | ------------------------- |
@@ -22,13 +24,13 @@
 | `--token-file` value       | `K3S_TOKEN_FILE` | 用于身份认证的 token 文件 |
 | `--server value, -s` value | `K3S_URL`        | 要连接的 k3s Server       |
 
-## 数据[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#数据)
+## 数据[#](#数据)
 
 | Flag                         | 默认值                 | 描述           |
 | ---------------------------- | ---------------------- | -------------- |
 | `--data-dir value, -d` value | "/var/lib/rancher/k3s" | 存放数据的目录 |
 
-## 节点[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#节点)
+## 节点[#](#节点)
 
 | Flag                                        | 默认值                                            | 环境变量             | 描述                                                                                                                                             |
 | ------------------------------------------- | ------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -42,7 +44,7 @@
 | `--selinux`                                 | N/A                                               | `K3S_SELINUX`        | 在 containerd 中启用 SELinux                                                                                                                     |
 | `--lb-server-port` value                    | 6444                                              | `K3S_LB_SERVER_PORT` | Supervisor 客户端负载均衡器的本地端口。如果 supervisor 和 apiserver 不在同一地点，则 apiserver 客户端负载均衡器也将使用比该端口少 1 的额外端口。 |
 
-## 运行时[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#运行时)
+## 运行时[#](#运行时)
 
 | Flag                                 | 默认值                             | 描述                                          |                        |
 | ------------------------------------ | ---------------------------------- | --------------------------------------------- | ---------------------- |
@@ -52,7 +54,7 @@
 | `--snapshotter` value                | `overlayfs`                        | 覆盖默认 containerd snapshotter               |                        |
 | `--private-registry` value           | `/etc/rancher/k3s/registries.yaml` | 私有镜像仓库配置文件                          |                        |
 
-## 网络[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#网络)
+## 网络[#](#网络)
 
 | Flag                        | 环境变量          | 描述                     |
 | --------------------------- | ----------------- | ------------------------ |
@@ -66,20 +68,20 @@
 
 如果你想直接设置 kubelet 的 `--resolv-conf` 值，请使用 `--kubelet-arg=resolv-conf=value`。只有在设置为有效的 resolv.conf 文件路径时，k3s 标志才会传递给 kubelet。
 
-## 定制标志[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#定制标志)
+## 定制标志[#](#定制标志)
 
 | Flag                     | 描述                         |
 | ------------------------ | ---------------------------- |
 | `--kubelet-arg` value    | 自定义 kubelet 进程的参数    |
 | `--kube-proxy-arg` value | 自定义 kube-proxy 进程的参数 |
 
-## 实验性[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#实验性)
+## 实验性[#](#实验性)
 
 | Flag         | 描述          |
 | ------------ | ------------- |
 | `--rootless` | 运行 rootless |
 
-## 弃用[#](https://docs.rancher.cn/docs/k3s/installation/install-options/agent-config/_index#弃用)
+## 弃用[#](#弃用)
 
 | Flag                     | 环境变量             | 描述                          |
 | ------------------------ | -------------------- | ----------------------------- |
