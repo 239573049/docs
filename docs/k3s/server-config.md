@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # K3s Server 配置参考
 
 在本节中，你将学习如何配置 K3s server。

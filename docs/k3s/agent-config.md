@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # K3s Agent 配置参考
 
 ## 配置[#](#配置)
