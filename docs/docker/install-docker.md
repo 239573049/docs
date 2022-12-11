@@ -53,7 +53,7 @@ docker pull nginx
 然后执行以下命令查看是否正常执行`docker`容器
 
 ```shell
-docker run -p 8080:80 -name nginx nginx
+docker run -p 8080:80 --name nginx nginx
 ```
 
 执行完成在浏览器中访问 `http://localhost:8080` 然后就可以打开 nginx 默认的界面了说明 docker 安装没有问题并且可以正常执行
