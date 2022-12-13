@@ -104,7 +104,7 @@ const config = {
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()}备案号:<a href='http://beian.miit.gov.cn/'> 湘ICP备2022007143号-1</a>`,
+        copyright: `© ${new Date().getFullYear()}备案号:<a href='http://beian.miit.gov.cn/'> 湘ICP备2022007143号-1</a> 由.NET 7.0.0提供支持`,
       },
       prism: {
         theme: lightCodeTheme,

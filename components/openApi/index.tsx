@@ -41,7 +41,7 @@ class OpenApi extends Component {
                 }}></Input>
                 <Button onClick={() => this.get()}>查询</Button>
                 <Spin spinning={loading}>
-                    <TextArea style={{ height: "500px" }} placeholder="Borderless" autoSize={{ minRows: 2, maxRows: 6 }} bordered={false} value={value} />
+                    <TextArea style={{ height: "500px" }} placeholder="Borderless" autoSize={{ minRows: 8, maxRows: 20 }} bordered={false} value={value} />
                 </Spin>
             </div>)
     }
