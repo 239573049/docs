@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from "react";
-import { Input, Spin, Button } from 'antd';
+import { Input, Spin, Button, Select } from 'antd';
 import axios from '../../src/utils/reqeust'
-const { TextArea } = Input;
+import Editor from "@monaco-editor/react";
 
 class OpenApi extends Component {
     state = {
@@ -9,9 +9,10 @@ class OpenApi extends Component {
             model: "text-davinci-003",
             prompt: "",
             temperature: 0,
-            max_tokens: 1000
+            max_tokens: 4096
         },
         loading: false,
+        language: 'markdown',
         value: ''
     }
 
@@ -27,21 +28,118 @@ class OpenApi extends Component {
                     value,
                     loading: false
                 })
-
             })
     }
 
+    handleChange(value) {
+        this.setState({
+            language: value
+        })
+        console.log(value);
+    }
+
     render(): ReactNode {
-        var { module, value, loading } = this.state;
+        var { module, value, loading, language } = this.state;
         return (
             <div>
                 <Input style={{ width: "70%" }} value={module.prompt} onChange={(t) => {
                     module.prompt = t.target.value;
                     this.setState({ module })
                 }}></Input>
-                <Button onClick={() => this.get()}>查询</Button>
+                <Button onClick={() => this.get()} loading={loading}>查询</Button>
+                <Select
+                    defaultValue="markdown"
+                    style={{ width: 120 }}
+                    onChange={(value) => this.handleChange(value)}
+                    options={[
+                        {
+                            value: 'markdown',
+                            label: 'markdown',
+                        },
+                        {
+                            value: 'c#',
+                            label: 'c#',
+                        },
+                        {
+                            value: 'json',
+                            label: 'json',
+                        },
+                        {
+                            value: 'java',
+                            label: 'java',
+                        },
+                        {
+                            value: 'javasrcipt',
+                            label: 'javasrcipt',
+                        },
+                        {
+                            value: 'shell',
+                            label: 'shell',
+                        },
+                        {
+                            value: 'cpp',
+                            label: 'cpp',
+                        },
+                        {
+                            value: 'css',
+                            label: 'css',
+                        },
+                        {
+                            value: 'delphi',
+                            label: 'delphi',
+                        },
+                        {
+                            value: 'php',
+                            label: 'php',
+                        },
+                        {
+                            value: 'sql',
+                            label: 'sql',
+                        },
+                        {
+                            value: 'html',
+                            label: 'html',
+                        },
+                        {
+                            value: 'go',
+                            label: 'go',
+                        },
+                        {
+                            value: 'python',
+                            label: 'python',
+                        },
+                        {
+                            value: 'text',
+                            label: 'text',
+                        },
+                        {
+                            value: 'jfx',
+                            label: 'jfx',
+                        },
+                        {
+                            value: 'scss',
+                            label: 'scss',
+                        },
+                        {
+                            value: 'lua',
+                            label: 'lua',
+                        },
+                        {
+                            value: 'less',
+                            label: 'less',
+                        },
+                        {
+                            value: 'css',
+                            label: 'css',
+                        },
+                    ]}
+                />
                 <Spin spinning={loading}>
-                    <TextArea style={{ height: "500px" }} placeholder="Borderless" autoSize={{ minRows: 8, maxRows: 20 }} bordered={false} value={value} />
+                    <Editor
+                        height="500px"
+                        language={language}
+                        value={value}
+                    />
                 </Spin>
             </div>)
     }
