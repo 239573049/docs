@@ -56,8 +56,8 @@ class OpenApi extends Component {
                             label: 'markdown',
                         },
                         {
-                            value: 'c#',
-                            label: 'c#',
+                            value: 'csharp',
+                            label: 'csharp',
                         },
                         {
                             value: 'json',
