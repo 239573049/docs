@@ -9,7 +9,7 @@ class OpenApi extends Component {
             model: "text-davinci-003",
             prompt: "",
             temperature: 0,
-            max_tokens: 4096
+            max_tokens: 2048
         },
         loading: false,
         language: 'markdown',
@@ -19,7 +19,7 @@ class OpenApi extends Component {
         this.setState({
             loading: true
         })
-        axios.post('http://docs-api.tokengo.top:81/api/open-api', this.state.module)
+        axios.post('http://localhost:5225/api/open-api', this.state.module)
             .then((res: any) => {
                 var { value } = this.state;
                 value = res.content;
