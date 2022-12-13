@@ -1,6 +1,6 @@
 {
   "label": "k3s分享",
-  "position": 3,
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "记录k3s部署过程"
