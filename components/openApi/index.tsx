@@ -15,7 +15,6 @@ class OpenApi extends Component {
         language: 'markdown',
         value: ''
     }
-
     get() {
         this.setState({
             loading: true
