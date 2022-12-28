@@ -1,7 +1,9 @@
 import React, { Component, ReactNode } from "react";
-import { Input, Spin, Button, Select } from 'antd';
+import { Input, Button } from 'antd';
 import axios from '../../src/utils/reqeust'
-import Editor from "@monaco-editor/react";
+import { marked } from 'marked';
+import './index.css'
+
 
 class OpenApi extends Component {
     state = {
@@ -21,10 +23,8 @@ class OpenApi extends Component {
         })
         axios.post('http://docs-api.tokengo.top:80/api/open-api', this.state.module)
             .then((res: any) => {
-                var { value } = this.state;
-                value = res.content;
+                document.getElementById('contnet').innerHTML = marked(res.content)
                 this.setState({
-                    value,
                     loading: false
                 })
             })
@@ -46,100 +46,11 @@ class OpenApi extends Component {
                     this.setState({ module })
                 }}></Input>
                 <Button onClick={() => this.get()} loading={loading}>查询</Button>
-                <Select
-                    defaultValue="markdown"
-                    style={{ width: 120 }}
-                    onChange={(value) => this.handleChange(value)}
-                    options={[
-                        {
-                            value: 'markdown',
-                            label: 'markdown',
-                        },
-                        {
-                            value: 'csharp',
-                            label: 'csharp',
-                        },
-                        {
-                            value: 'json',
-                            label: 'json',
-                        },
-                        {
-                            value: 'java',
-                            label: 'java',
-                        },
-                        {
-                            value: 'javasrcipt',
-                            label: 'javasrcipt',
-                        },
-                        {
-                            value: 'shell',
-                            label: 'shell',
-                        },
-                        {
-                            value: 'cpp',
-                            label: 'cpp',
-                        },
-                        {
-                            value: 'css',
-                            label: 'css',
-                        },
-                        {
-                            value: 'delphi',
-                            label: 'delphi',
-                        },
-                        {
-                            value: 'php',
-                            label: 'php',
-                        },
-                        {
-                            value: 'sql',
-                            label: 'sql',
-                        },
-                        {
-                            value: 'html',
-                            label: 'html',
-                        },
-                        {
-                            value: 'go',
-                            label: 'go',
-                        },
-                        {
-                            value: 'python',
-                            label: 'python',
-                        },
-                        {
-                            value: 'text',
-                            label: 'text',
-                        },
-                        {
-                            value: 'jfx',
-                            label: 'jfx',
-                        },
-                        {
-                            value: 'scss',
-                            label: 'scss',
-                        },
-                        {
-                            value: 'lua',
-                            label: 'lua',
-                        },
-                        {
-                            value: 'less',
-                            label: 'less',
-                        },
-                        {
-                            value: 'css',
-                            label: 'css',
-                        },
-                    ]}
-                />
-                <Spin spinning={loading}>
-                    <Editor
-                        height="500px"
-                        language={language}
-                        value={value}
-                    />
-                </Spin>
+                <div id="contnet" className="content">
+                    <p>
+                        测试
+                    </p>
+                </div>
             </div>)
     }
 }
