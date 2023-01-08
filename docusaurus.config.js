@@ -30,13 +30,6 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -55,10 +48,16 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            type: 'docSidebar',
             position: 'left',
-            label: '笔记',
+            sidebarId: 'docs',
+            label: '文档',
+          },
+          {
+            type: 'docSidebar',
+            position: 'left',
+            sidebarId: 'dotnet',
+            label: 'Dontet',
           },
           {
             href: 'https://github.com/239573049',
@@ -75,7 +74,7 @@ const config = {
             items: [
               {
                 label: '笔记',
-                to: '/docs/intro',
+                to: '/docs/token-docs',
               },
             ],
           },
