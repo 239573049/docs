@@ -50,6 +50,8 @@ sidebar_position: 0
 
 4. 在 View 中添加以下代码：
 
+html上传文件代码
+
    ```html
    <form
      asp-controller="Home"
@@ -57,7 +59,22 @@ sidebar_position: 0
      enctype="multipart/form-data"
      method="post"
    >
-     <input type="file" name="file" />
-     <input type="submit" value="Upload" />
+    <input type="file" name="file" />  <!-- 选择文件 -->
+     <input type="submit" value="Upload" />  <!-- 提交按钮 -->
    </form>
    ```
+
+axios上传文件代码
+
+```js
+// 创建FormData对象
+let formData = new FormData();
+// 通过append()方法添加文件
+formData.append('file', file);
+// 发送请求
+axios.post('/api/upload', formData, {
+    headers: {
+        'Content-Type': 'multipart/form-data'
+    }
+})
+```
