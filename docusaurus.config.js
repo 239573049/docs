@@ -84,6 +84,10 @@ const config = {
               {
                 label: 'wosperry',
                 href: 'https://wosperry.com/',
+              },
+              {
+                label: '沙漠尽头的狼',
+                href: 'https://dotnet9.com/',
               }
             ],
           },
