@@ -38,6 +38,8 @@ class OpenApi extends Component {
         })
         axios.post('http://docs-api.tokengo.top:80/api/open-api', this.state.module)
             .then((res: any) => {
+                console.log('content', res.content);
+
                 document.getElementById('contnet').innerHTML = marked(res.content)
                 this.setState({
                     loading: false
